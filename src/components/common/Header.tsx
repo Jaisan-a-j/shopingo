@@ -1,15 +1,9 @@
 import { Menu, Search, Heart, ShoppingBasket, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { placeholders } from "../../constants/searchPlaceholders";
 
 const Header: React.FC = () => {
-  const placeholders: string[] = [
-    "laptops",
-    "tv",
-    "shoes",
-    "watches",
-    "mobiles",
-  ];
   const [currentPlaceholder, setCurrentPlaceholder] = useState<number>(0);
 
   useEffect(() => {
