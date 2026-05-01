@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { Link } from "react-router-dom";
 import { Product } from "../../types";
 import { BannerSlider } from "./BannerSlider";
 import { FeaturedProductsCard } from "./FeaturedProductsCard";
@@ -35,36 +36,39 @@ export const ProductList: FC<ProductListProps> = ({
         />
 
         {products.length > 0 ? (
-          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 mt-4 ">
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 mt-4">
             {products.map((product) => (
-              <article
+              <Link
                 key={product._id}
-                className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                to={`/product/${product._id}`}
+                className="block"
               >
-                <div className="h-48 overflow-hidden bg-gray-100">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="space-y-2 p-4">
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                      {product.category}
-                    </span>
-                    <span className="text-sm font-semibold text-gray-900">
-                      ${product.price}
-                    </span>
+                <article className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-                  <h3 className="text-sm font-semibold text-gray-900">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-gray-500">
-                    Rating: {product.rating.toFixed(1)}
-                  </p>
-                </div>
-              </article>
+                  <div className="space-y-2 p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
+                        {product.category}
+                      </span>
+                      <span className="text-sm font-semibold text-gray-900">
+                        ${product.price}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      Rating: {product.rating.toFixed(1)}
+                    </p>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         ) : (

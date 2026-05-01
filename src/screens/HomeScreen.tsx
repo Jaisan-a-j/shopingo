@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CategoryBar } from "../components/home/CategoryBar";
 import { ProductList } from "../components/home/ProductList";
 import { Product } from "../types";
@@ -74,6 +74,10 @@ const HomeScreen = () => {
     if (activeCategory === "for-you") return "For You";
     return activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
   }, [activeCategory]);
+
+  useEffect(() => {
+    localStorage.setItem("shopingoProducts", JSON.stringify(productData));
+  }, []);
 
   return (
     <>
