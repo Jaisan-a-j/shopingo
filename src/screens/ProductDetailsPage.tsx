@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Product } from "../types";
 import { ProductColorSlider } from "../components/home/ProductColorSlider";
+import { ThumbsUp, ThumbsDown, Star } from "lucide-react";
 
 const getStoredProducts = (): Product[] => {
   const stored = localStorage.getItem("shopingoProducts");
@@ -68,9 +69,6 @@ const ProductDetailsPage = () => {
   return (
     <div className="bg-slate-50 px-4 py-10 sm:px-6">
       <div className="mb-4 flex items-center justify-between"></div>
-
-      {/* ------------- slider ---------------- */}
-
       <div className="relative overflow-hidden rounded-[2rem] bg-gray-100">
         <img
           src={sliderImages[activeSlide]}
@@ -109,9 +107,6 @@ const ProductDetailsPage = () => {
           ))}
         </div>
       </div>
-
-      {/* ------------- Details ---------------- */}
-
       <div className="mx-auto mt-6 max-w-5xl rounded-[2rem] bg-white py-6 px-3 shadow-sm sm:p-8">
         <h1 className="text-2xl font-semibold text-slate-900">
           Check Pink Kurta
@@ -138,8 +133,6 @@ const ProductDetailsPage = () => {
         <p className="mt-3 text-sm font-medium text-emerald-700">
           inclusive of all taxes
         </p>
-
-        {/* ------------- Color slider ---------------- */}
         <ProductColorSlider
           images={[
             product.image,
@@ -149,8 +142,6 @@ const ProductDetailsPage = () => {
             "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80",
           ]}
         />
-
-        {/* ------------- Select Size ---------------- */}
 
         <div className="mt-6">
           <div className="mb-4">
@@ -174,8 +165,6 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
-        {/* ------------- Cart and Wishlist button ---------------- */}
-
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <button
             type="button"
@@ -190,8 +179,6 @@ const ProductDetailsPage = () => {
             WISHLIST
           </button>
         </div>
-
-        {/* ------------- Product Details ---------------- */}
 
         <div className="mt-6 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
           <h2 className="text-lg font-semibold text-slate-900">
@@ -216,8 +203,6 @@ const ProductDetailsPage = () => {
             </p>
           </div>
         </div>
-
-        {/* ------------- Customer Ratings ---------------- */}
 
         <div className="mt-6">
           <h2 className="text-lg font-semibold text-slate-900">
@@ -264,6 +249,47 @@ const ProductDetailsPage = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="max-w-md border border-slate-300 bg-white rounded-md p-4 mt-4 shadow-sm rounded-lg font-sans">
+        <h2 className="text-xl font-bold text-gray-800 mb-4">
+          Customer Reviews (875)
+        </h2>
+
+        <div className="flex items-center justify-center w-12 h-6 bg-emerald-500 text-white text-sm font-bold rounded px-1 mb-4">
+          5 <Star size={14} fill="currentColor" className="ml-1" />
+        </div>
+
+        <p className="text-gray-500 leading-relaxed mb-4">
+          This is some content from a media component. You can replace this with
+          any content and adjust it as needed. Some quick example text to build
+          on the card title and make.
+        </p>
+
+        <div className="mb-6">
+          <img
+            src={sliderImages[activeSlide]}
+            alt="Review thumbnail"
+            className="w-24 h-32 object-cover rounded-sm"
+          />
+        </div>
+
+        <div className="flex items-center text-gray-500 text-sm mb-4">
+          <span className="font-medium text-gray-700">Jhon Deo</span>
+          <span className="mx-3 border-l border-gray-300 h-4"></span>
+          <span>12 June 2020</span>
+        </div>
+
+        <div className="flex items-center gap-6 text-gray-500">
+          <button className="flex items-center gap-2 hover:text-emerald-500 transition-colors">
+            <ThumbsUp size={18} />
+            <span className="text-lg">68</span>
+          </button>
+          <button className="flex items-center gap-2 hover:text-red-500 transition-colors">
+            <ThumbsDown size={18} />
+            <span className="text-lg">24</span>
+          </button>
         </div>
       </div>
     </div>
