@@ -49,10 +49,13 @@ const ProfileScreen = () => {
 
       <div className="border border-gray-200 p-4 mb-6 flex items-center justify-between">
         <span className="text-gray-700 truncate mr-2">michel@example.com</span>
-        <button className="flex items-center gap-2 border border-gray-800 px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap">
+        <Link
+          to="/profile/edit"
+          className="flex items-center gap-2 border border-gray-800 px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap"
+        >
           <Edit2 size={16} />
           Edit Profile
-        </button>
+        </Link>
       </div>
 
       <div className="space-y-4 relative">
@@ -91,10 +94,13 @@ const ProfileScreen = () => {
           <span className="text-gray-700 text-lg">Coupons</span>
         </div>
 
-        <div className="border border-gray-200 h-40 flex flex-col items-center justify-center gap-3 hover:bg-gray-50 transition-colors cursor-pointer">
+        <Link
+          to="/profile/details"
+          className="border border-gray-200 h-40 flex flex-col items-center justify-center gap-3 hover:bg-gray-50 transition-colors cursor-pointer"
+        >
           <User size={32} strokeWidth={1} className="text-gray-700" />
           <span className="text-gray-700 text-lg">Profile Details</span>
-        </div>
+        </Link>
       </div>
 
       <button

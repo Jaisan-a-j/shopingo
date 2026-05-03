@@ -40,3 +40,59 @@ export interface OrderFilters {
   status: OrderStatus;
   time: OrderTimeFilter;
 }
+
+export interface ProfileDetails {
+  fullName: string;
+  phone: string;
+  email: string;
+  gender: ProfileGender;
+  dob: string;
+  location: string;
+}
+
+export type ProfileGender = "Male" | "Female";
+
+export interface CartItem {
+  id: number;
+  title: string;
+  image: string;
+  size: string;
+  qty: number;
+  originalPrice: number;
+  currentPrice: number;
+  discountPercent: number;
+}
+
+export interface CartSummary {
+  bagTotal: number;
+  bagDiscount: number;
+  delivery: number;
+}
+
+export interface BillingDetails {
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobileNo: string;
+  streetAddress: string;
+  zipCode: string;
+  city: string;
+  country: string;
+}
+
+export type PaymentMethod = "cash" | "paypal" | "card" | "net-banking";
+
+export type PaypalAccountType = "domestic" | "international";
+
+export interface CardPaymentDetails {
+  cardNumber: string;
+  nameOnCard: string;
+  validity: string;
+  ccv: string;
+}
+
+export interface PaymentFormData {
+  card: CardPaymentDetails;
+  bank: string;
+  paypalAccountType: PaypalAccountType;
+}
