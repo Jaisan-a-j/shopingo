@@ -34,7 +34,11 @@ export type OrderStatus =
   | "cancelled"
   | "returned";
 
-export type OrderTimeFilter = "anytime" | "last-30-days" | "last-6-months" | "last-year";
+export type OrderTimeFilter =
+  | "anytime"
+  | "last-30-days"
+  | "last-6-months"
+  | "last-year";
 
 export interface OrderFilters {
   status: OrderStatus;
@@ -95,4 +99,15 @@ export interface PaymentFormData {
   card: CardPaymentDetails;
   bank: string;
   paypalAccountType: PaypalAccountType;
+}
+
+export interface LoginFormData {
+  identifier: string;
+}
+
+export interface RegistrationFormData {
+  name: string;
+  mobile: string;
+  password: string;
+  acceptedTerms: boolean;
 }

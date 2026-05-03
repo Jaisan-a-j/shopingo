@@ -10,6 +10,8 @@ import EditProfile from "./screens/EditProfile";
 import Cart from "./screens/Cart";
 import BillingDetails from "./screens/BillingDetails";
 import Payment from "./screens/Payment";
+import Login from "./screens/Login";
+import Registration from "./screens/Registration";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/billing-details" element={<BillingDetails />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/profile/orders" element={<OrdersHistory />} />
