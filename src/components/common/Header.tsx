@@ -11,9 +11,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, type FC } from "react";
 import { placeholders } from "../../constants/searchPlaceholders";
 import ROUTES from "../../constants/routes";
+import MobileMenu from "./MobileMenu";
 
 const Header: FC = () => {
   const [currentPlaceholder, setCurrentPlaceholder] = useState<number>(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const interval: number = setInterval(() => {
@@ -23,13 +25,38 @@ const Header: FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const openMobileMenu = (): void => {
+    setIsMobileMenuOpen(true);
+  };
+
+  const closeMobileMenu = (): void => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <header className="border-b border-gray-200 bg-white shadow-sm">
-      <div className="flex items-center justify-between px-4 py-3 md:px-8 md:py-6 lg:px-12">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+
+      <div className="flex items-center justify-between px-4 py-3 md:px-8 md:py-6 lg:px-12 lg:py-5">
         <button
           type="button"
+          onClick={openMobileMenu}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 md:hidden"
           aria-label="Open menu"
+          aria-expanded={isMobileMenuOpen}
         >
           <Menu className="h-5 w-5" />
         </button>
