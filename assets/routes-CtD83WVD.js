@@ -1,0 +1,1 @@
+var e={HOME:`/`,LOGIN:`/login`,REGISTER:`/registration`,CART:`/cart`,PRODUCT_DETAILS:`/product/:productId`,PROFILE:`/profile`,ORDERS_HISTORY:`/profile/orders`,EDIT_PROFILE:`/profile/edit`};export{e as t};
