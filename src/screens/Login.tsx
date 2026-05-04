@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type FC, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { type LoginFormData } from "../types";
+import ROUTES from "../constants/routes";
 
 const initialLoginFormData: LoginFormData = {
   identifier: "",
@@ -85,7 +86,7 @@ const Login: FC = () => {
 
           <p className="mt-5 text-center text-sm text-gray-500">
             Don't have an account?{" "}
-            <Link to="/registration" className="font-medium text-red-600">
+            <Link to={ROUTES.REGISTER} className="font-medium text-red-600">
               Sign Up
             </Link>
           </p>

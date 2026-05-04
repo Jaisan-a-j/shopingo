@@ -11,6 +11,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import ROUTES from "../constants/routes";
 
 const ProfileScreen = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -50,7 +51,7 @@ const ProfileScreen = () => {
       <div className="border border-gray-200 p-4 mb-6 flex items-center justify-between">
         <span className="text-gray-700 truncate mr-2">michel@example.com</span>
         <Link
-          to="/profile/edit"
+          to={ROUTES.EDIT_PROFILE}
           className="flex items-center gap-2 border border-gray-800 px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap"
         >
           <Edit2 size={16} />
@@ -60,7 +61,7 @@ const ProfileScreen = () => {
 
       <div className="space-y-4 relative">
         <Link
-          to="/profile/orders"
+          to={ROUTES.ORDERS_HISTORY}
           className="border border-gray-200 h-40 flex flex-col items-center justify-center gap-3 hover:bg-gray-50 transition-colors cursor-pointer"
         >
           <Package size={32} strokeWidth={1} className="text-gray-700" />

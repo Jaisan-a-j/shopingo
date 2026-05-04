@@ -2,6 +2,7 @@ import { useMemo, useState, type ChangeEvent, type FC } from "react";
 import { Heart, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { type CartItem, type CartSummary } from "../types";
+import ROUTES from "../constants/routes";
 
 const cartItems: CartItem[] = [
   {
@@ -41,14 +42,11 @@ const Cart: FC = () => {
   const [couponCode, setCouponCode] = useState<string>("");
 
   const totalAmount = useMemo<number>(
-    () =>
-      cartSummary.bagTotal - cartSummary.bagDiscount + cartSummary.delivery,
+    () => cartSummary.bagTotal - cartSummary.bagDiscount + cartSummary.delivery,
     [],
   );
 
-  const handleCouponChange = (
-    event: ChangeEvent<HTMLInputElement>,
-  ): void => {
+  const handleCouponChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setCouponCode(event.target.value);
   };
 
@@ -63,7 +61,7 @@ const Cart: FC = () => {
           My Bag ({bagItemCount} items)
         </h1>
         <Link
-          to="/"
+          to={ROUTES.HOME}
           className="m-2 flex items-center justify-center bg-gray-50 px-3 py-2 text-center text-xs font-bold uppercase leading-tight text-black"
         >
           Continue Shopping

@@ -2,6 +2,7 @@ import { Menu, Search, Heart, ShoppingBasket, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { placeholders } from "../../constants/searchPlaceholders";
+import ROUTES from "../../constants/routes";
 
 const Header: React.FC = () => {
   const [currentPlaceholder, setCurrentPlaceholder] = useState<number>(0);
@@ -34,7 +35,7 @@ const Header: React.FC = () => {
             <Heart className="h-5 w-5" />
           </Link>
           <Link
-            to="/cart"
+            to={ROUTES.CART}
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100"
             aria-label="Cart"
           >
@@ -44,7 +45,7 @@ const Header: React.FC = () => {
             </span>
           </Link>
           <Link
-            to="/profile"
+            to={ROUTES.PROFILE}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100"
             aria-label="Profile"
           >

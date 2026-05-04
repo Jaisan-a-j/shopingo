@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { Edit2, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { type ProfileDetails as ProfileDetailsType } from "../types";
+import { ROUTES } from "../constants/routes";
 
 const profileDetails: ProfileDetailsType = {
   fullName: "Jhon Deo",
@@ -56,7 +57,7 @@ const ProfileDetails: FC = () => {
         </div>
 
         <Link
-          to="/profile/edit"
+          to={ROUTES.EDIT_PROFILE}
           className="mt-3 flex w-36 items-center justify-center gap-2 border-4 border-gray-200 bg-[#212529] py-3 text-xs font-bold uppercase text-white"
         >
           <Edit2 size={14} />
