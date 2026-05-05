@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState, type FC } from "react";
-import { placeholders } from "../../constants/searchPlaceholders";
+import { placeholders } from "../../constants/menus";
 import ROUTES from "../../constants/routes";
 import MobileMenu from "./MobileMenu";
 

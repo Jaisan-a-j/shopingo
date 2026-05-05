@@ -111,3 +111,13 @@ export interface RegistrationFormData {
   password: string;
   acceptedTerms: boolean;
 }
+
+interface MenuItem {
+  label: string;
+  to: string;
+}
+
+export interface MenuSection {
+  heading: string;
+  items: MenuItem[];
+}
