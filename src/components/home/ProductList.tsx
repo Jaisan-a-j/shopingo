@@ -28,7 +28,7 @@ export const ProductList: FC<ProductListProps> = ({
           </div>
         </div>
 
-        <BannerSlider autoplayInterval={5000} />
+        <BannerSlider />
 
         <FeaturedProductsCard
           products={products}
